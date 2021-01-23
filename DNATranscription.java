@@ -182,18 +182,14 @@ public class DNATranscription {
 		}
 		System.out.println("The final amino acid chain is " + polypeptide.toString());
 		ArrayList<AminoAcids> startAndStop = new ArrayList<AminoAcids>();
-		startAndStop.add(AminoAcids.met);
-		startAndStop.add(AminoAcids.stop);
-		if(!polypeptide.containsAll(startAndStop))
-		{
-			System.out.println("WARNING: Your mRNA does not contain either the start codon AUG (Methionine) or any of the stop codons, or both");
-		}
+		startAndStop.add(AminoAcids.met); startAndStop.add(AminoAcids.stop);
 		
-		if(ogstrandLen % 3 != 0)
-		{
-			System.out.println("WARNING: You also have lagging nucleotides that cannot be fit into a codon..being the " + inputStrand.substring(strandLen) +
+		if(!polypeptide.containsAll(startAndStop)) System.out.println("WARNING: Your mRNA does not contain either the start codon AUG (Methionine) "
+				+ "or any of the stop codons, or both");
+		
+		
+		if(ogstrandLen % 3 != 0)	System.out.println("WARNING: You also have lagging nucleotides that cannot be fit into a codon..being the " + inputStrand.substring(strandLen) +
 					" nucleotide");
-		}
 	}
 	
 }
